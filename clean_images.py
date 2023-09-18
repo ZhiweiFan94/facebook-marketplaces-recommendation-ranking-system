@@ -37,6 +37,8 @@ def clean_image_data(input_folder, output_folder, final_size):
 if __name__ == '__main__':
     input_folder = 'images/'
     output_folder = 'cleaned_images/'
-    final_size = 512  # Desired image size
+    final_size = 224  # to match the size of resnet Imagnet package for better training
 
     clean_image_data(input_folder, output_folder, final_size)
+
+# %%

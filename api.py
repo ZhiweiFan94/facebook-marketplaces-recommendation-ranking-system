@@ -27,7 +27,7 @@ class FeatureExtractor(nn.Module):
             nn.Linear(1000, 13)
         )
         # Load model weights
-        self.main.load_state_dict(torch.load('/Users/fanzhiwei/Desktop/Aicore-test/facebook-marketplaces-recommendation-ranking-system/model_evaluation/model_20230907_150639/weights/resnet_epoch_9_val_loss_1.4662_val_acc_55.63.pth'))
+        self.main.load_state_dict(torch.load('resnet_epoch_9_val_loss_1.4662_val_acc_55.63.pth'))
         self.main.fc = self.main.fc[0]  # Drop last two layers
 
     def forward(self, image):
@@ -94,7 +94,8 @@ def predict_combined(image: UploadFile = File(...), text: str = Form(...)):
     image_tensor = read_image(temp_file)
     os.remove(temp_file)
     image_tensor = transform(image_tensor).unsqueeze(0)
-    features = feature_extractor.predict(image_tensor).detach().numpy()
+    vectors = feature_extractor.predict(image_tensor)
+    features = np.array(vectors).astype('float32').reshape(1,1000)
 
     # FAISS return 5 similar image indices
     k = 5

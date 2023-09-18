@@ -1,13 +1,8 @@
 ##########connect to EC2 and download files#############
 #%%load files from EC2
 import paramiko
+from EC2_configuration import key_file_path, ec2_ip_address, ec2_username, remote_file_path, local_file_path
 
-# Configuration
-key_file_path = "c647f700-e161-47fa-8b77-98252d959902_9f1749cc-4ba8-4037-ade0-414fcadf848b.pem"
-ec2_ip_address = "ec2-34-244-8-215.eu-west-1.compute.amazonaws.com"
-ec2_username = "ec2-user"
-remote_file_path = "images_fb.zip"
-local_file_path = "/Users/fanzhiwei/Desktop/Aicore-test/facebook-marketplaces-recommendation-ranking-system/images_fb.zip"  
 # Establish SSH connection
 key = paramiko.RSAKey(filename=key_file_path)
 client = paramiko.SSHClient()
@@ -72,3 +67,22 @@ merged_df = df_img.merge(df_pdt, left_on='product_id', right_on='id', how='inner
 # save the merged dataset 
 merged_df.to_csv('training_data.csv')
 
+#%% save the encoder to pickle file
+import pickle
+custom_encoding = {
+    'Home & Garden': 0,
+    'Baby & Kids Stuff': 1,
+    'DIY Tools & Materials': 2,
+    'Music, Films, Books & Games': 3,
+    'Phones, Mobile Phones & Telecoms': 4,
+    'Clothes, Footwear & Accessories': 5,
+    'Other Goods': 6,
+    'Health & Beauty': 7,
+    'Sports, Leisure & Travel': 8,
+    'Appliances': 9,
+    'Computers & Software': 10,
+    'Office Furniture & Equipment': 11,
+    'Video Games & Consoles': 12
+}
+with open('image_decoder.pkl','wb') as f:
+    pickle.dump(custom_encoding,f)
