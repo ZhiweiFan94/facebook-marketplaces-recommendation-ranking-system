@@ -45,7 +45,7 @@ Deploy the model serving API to a cloud provider so that it can be accessed by t
 
 ![FAISS_f1](./api_interface.png)
 ![FAISS_f2](./api_vector.png)
-![FAISS_f3](./api_FAISS.png)
+![FAISS_f3](./api_faiss.png)
 
 
 
