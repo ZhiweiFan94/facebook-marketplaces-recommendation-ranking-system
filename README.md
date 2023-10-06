@@ -27,7 +27,7 @@ Train a CNN model to classify products from the images and use the trained model
 - Avoid overfitting, low layers are frozen, thus, 'layer4' and 'fc' are fine tuned with different learning rates to accelerate learning process. Meanwhile, using 'scheduler' to modify the learning rates per certain epochs will be beneficial to the converging process
 - Turn the model into feature extraction model with 1000 features by removing the added classification layers, and use the extraction model to extract vectors of every image
 - Discussion of learning rate, batch size and validation rate: here attached the loss function convergence figure which displays the loss function convergence versus different initial conditions. The batch size here plays a critical role for converging speed. Due to the limitation of memory size, the batch size of 128 is the best we can approach on local machine (black line). The validation rate of 68.49% (black line) is relatively good in this case, compared to yellow one (54.32%) with batch size of 32 and blue one (56.54%) of 64. The overfitting happens in the yellow line when the loop goes beyond 400, the validation rate starts to decrease slowly. The learning rate window up to 10% is tested, it seems no huge change will happen. The batch size dominates the convergence slope but due to the hardware limitation there should be a better value. 
-![loss function converged from different initial conditions](./loss_func_fig.png)
+![loss function converged from different initial conditions](./documents/loss_func_fig.png)
 
 
 ## Create the model using FAISS
@@ -43,9 +43,9 @@ Deploy the model serving API to a cloud provider so that it can be accessed by t
 - In the FastAPI page to test the application: here attached screenshots to present how they work in the api interface. In the main menu, there are functions named 'feature_embeddings' and 'similar_images'. The target image can be uploaded and excuted with the button on the page. The results --feature vectors and figure indices, can be captured from the output window.
 
 
-![FAISS_f1](./api_interface.png)
-![FAISS_f2](./api_vector.png)
-![FAISS_f3](./api_faiss.png)
+![FAISS_f1](./documents/api_interface.png)
+![FAISS_f2](./documents/api_vector.png)
+![FAISS_f3](./documents/api_faiss.png)
 
 
 
