@@ -3,7 +3,6 @@ Facebook Marketplace is a platform for buying and selling products on Facebook.
 
 This is an implementation of the system behind the marketplace, which uses AI to recommend the most relevant listings based on a personalised search query.
 
-
 ## Load and clean tabular and image dataset
 The labels of image are stored in the tubular sheet. Thus, to clean and find the relevance of datasets is crucial for classification model.
 
@@ -65,6 +64,11 @@ torchvision == 0.15.2
 torch == 2.0.1
 transformers
 python-multipart
+
+##
+Notice! The relevant images and models are accessible via the link:
+https://drive.google.com/drive/folders/1-eHKdy2r72mz0b3eGtYXrNV-roPP_z2m?usp=sharing
+
 
 
 
