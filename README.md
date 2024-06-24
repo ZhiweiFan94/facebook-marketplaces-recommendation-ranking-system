@@ -1,7 +1,9 @@
 # Facebook Marketplace Recommendation Ranking System
 Facebook Marketplace is a platform for buying and selling products on Facebook.
 
-This is an implementation of the system behind the marketplace, which uses AI to recommend the most relevant listings based on a personalised search query.
+This is an implementation of the system behind the marketplace, which uses AI to recommend the most relevant listings based on a personalised search query. 
+
+This project showcases the processes of data aggregation, model fine-tuning and cloud deployment.
 
 ## Load and clean tabular and image dataset
 The labels of image are stored in the tubular sheet. Thus, to clean and find the relevance of datasets is crucial for classification model.
